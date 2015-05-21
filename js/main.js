@@ -30,7 +30,7 @@ var Emzy = {
         .on('click', '.emAddChild', Emzy.createNode )
         .on('click', '.emAddSibling', Emzy.createNode )
         .on('click', '.emRemove', Emzy.deleteNode )
-        .on('dblclick', '.nodeName', function() { $(this).removeAttr('disabled'); } )
+        .on('dblclick', '.nodeName', function() { $(this).removeAttr('disabled').focus(); } )
         .on('blur', '.nodeName', function() { $(this).attr('disabled', true); } )
         .on('keyup', '.pxInput', Emzy.getValues )
         .on('sortstart', function() { $('.nodeList').toggleClass('sortStart'); })
@@ -42,20 +42,26 @@ var Emzy = {
     var moveHandleHtml = '',
         addSiblingHtml = '',
         removeNodeHtml = '',
+        rootValue = '',
+        rootResult = '',
         rootNodeHtml = ' root',
         rootNodeClass = 'body';
 
     if (root === false) {
-      moveHandleHtml = '<div class="handle"></div>',
-      addSiblingHtml = '<a class="btn btn-small emAddSibling"><i class="icon-arrow-down"></i></a>',
-      removeNodeHtml = '<a class="btn btn-small btn-danger emRemove"><i class="icon-remove icon-white"></i></a>',
+      moveHandleHtml = '<div class="handle"><i class="fa fa-ellipsis-v"></i></div>',
+      addSiblingHtml = '<a class="btn btn-small emAddSibling"><i class="fa fa-arrow-down"></i></a>',
+      removeNodeHtml = '<a class="btn btn-small btn-danger emRemove"><i class="fa fa-remove"></i></a>',
       rootNodeHtml = '',
       rootNodeClass = 'element';
+    }
+    if (root === true) {
+      rootValue = '16',
+      rootResult = '1';
     }
 
     var $node =
           $('<div class="emBox'+rootNodeHtml+'"></div>'),
-        nodeHtml = '<form class="form-inline">'+moveHandleHtml+'<div class="btn-group pull-right"><a class="btn btn-small emAddChild"><i class="icon-arrow-right"></i></a>'+addSiblingHtml+removeNodeHtml+'</div> <div class="formWrapper control-group input-prepend input-append"><input type="text" class="add-on nodeName" value="'+rootNodeClass+'" disabled><input type="text" class="input-small span1 pxInput" /><span class="add-on">=</span><span class="uneditable-input span2 emOutput"></span></div></form><div class="nodeList"></div>';
+        nodeHtml = '<form class="form-inline">'+moveHandleHtml+'<div class="btn-group pull-right"><a class="btn btn-small emAddChild"><i class="fa fa-arrow-right"></i></a>'+addSiblingHtml+removeNodeHtml+'</div> <div class="formWrapper control-group input-prepend input-append"><input type="text" class="add-on nodeName" value="'+rootNodeClass+'" disabled><span> {&nbsp;&nbsp;</span><input type="text" class="input-small span1 pxInput" value="'+rootValue+'" /><span>px&nbsp;&nbsp;=&nbsp;&nbsp;</span><span class="uneditable-input span2 emOutput">'+rootResult+'</span><span>em&nbsp;&nbsp;}</span></div></form><div class="nodeList"></div>';
 
     $node.html(nodeHtml);
 
@@ -102,7 +108,7 @@ var Emzy = {
 
     if ( !!$(rootInput).val() && !!$(this).val() && Emzy.number.test(pxValue) ) {
       if ( $(this).parent().hasClass('error') ) { $(this).parent().removeClass('error'); }
-      $(outputField).text( Emzy.calcEm(pxValue, parentValue) + 'em' );
+      $(outputField).text( Emzy.calcEm(pxValue, parentValue) );
     
     } else if ( !$(rootInput).val() && !!$(this).val() ) {
       if ( !$(rootInput).parent().hasClass('error') ) { $(rootInput).parent().addClass('error'); }
@@ -136,7 +142,7 @@ var Emzy = {
       var nodeClass = $(this).children('form').children('.formWrapper').children('.nodeName').val(),
           nodeEmval = $(this).children('form').children('.formWrapper').children('.emOutput').text();
       
-      output += nodeClass+' { font-size: '+nodeEmval+' }<br/>';
+      output += nodeClass+' { font-size: '+nodeEmval+'em }<br/>';
     });
     $('.emzyOutput').html('<pre>'+output+'</pre>');
   }

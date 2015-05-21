@@ -1,0 +1,179 @@
+/*  Design
+==================================================================================== */
+
+.wrapper { width: 1200px; margin: 0 auto; padding: 0 0 1rem; }
+
+/* ====================================================================================
+**  Design - Manage layout and design related styles here.
+==================================================================================== */
+
+// For sticky footer
+html, body { height: 100%; }
+
+.outer-wrapper { 
+	min-height: 100%; 
+	height: auto !important; 
+	height: 100%; 
+	@include rem('margin-bottom', -48px); 
+	
+	.footer-push { @include rem('height', 48px); } }
+
+// Used in layout
+.wrapper {
+	width: 100%;
+	margin: 0 auto; 
+	@extend .cf; }
+
+
+// Site Header
+.site-header {
+	font-family: $font-heading;
+	background:#202020; color: #FBFBFB;
+	overflow: hidden; white-space: nowrap;
+
+	a { color: #EBEBEB; }
+	
+	.site-logo { 
+		display: block;
+		@include rem('height', 96px);
+		@include rem('margin', 0px);
+		@include rem('font-size', 120px);
+		@include em('line-height', 120px, 102px);
+
+		font-weight: 600; 
+		text-align: center; } 
+
+	.subheader { display:none; } }
+
+
+// Main Site Content
+.site-content { 
+	@include rem('margin', 24px 0); }
+
+
+// Site Footer
+.site-footer {
+	width: 100%; height:48px; 
+	background: #202020; color: #EBEBEB; 
+	
+	p.bragging-rights { display:none; }
+	p { 
+		@include rem('font-size', 18px);
+		@include em('line-height', 18px, 48px); 
+		font-family: $font-heading; 
+		text-align: center;
+		margin: 0;
+
+		a { color: #EBEBEB; 
+			i { font-size: 1.25em; top: .025em; }
+			&:hover { color: $color-links-h; } } } }
+
+
+// Misc Globals
+.b12 { color: #C99FE5; } 
+a:hover > .b12 { color: #A189B2; }
+.subheader { color: #707070; }
+
+
+.emBox.root { margin:2em .5em 2em .5em; }
+.emBox { margin: .5em 0 .5em 1em; }
+.emBox > form { 
+    background: #FBFBFB; 
+    padding: 1em 1em 1em 1em; margin:0; 
+    border-radius:.25em; 
+    position:relative; 
+    box-shadow: 0 2px 0 #dadada;
+    }
+
+form > .handle { 
+    display:none; 
+    height:100%; 
+    width: 1em; 
+    position:absolute; 
+    text-align: center; 
+    top:0; left:0; 
+    background: #dadada; 
+    cursor:move; 
+    border-radius:.25em 0 0 .25em;
+    color: #909090; }
+form:hover > .handle { 
+    display:block; }
+form:hover > .handle i { 
+    font-size: 1.25em;
+    line-height: 3.75em; }
+form:hover > .handle:hover { 
+    background: #c0c0c0;
+    color: #606060; }
+.placeholder { 
+    min-height: 2em; 
+    border: 2px dashed rgba(150,5,10,.75); 
+    border-radius: .25em; }
+.nodeList.sortStart { 
+    min-height: 2em; 
+    padding: 0; 
+    border:2px dashed rgba(0,0,0,.05); }
+
+.emzyOutput {
+    background: #f9f9f9;
+    border: 2px dashed #dadada;
+    padding: 1em 2em;
+    margin: 0 .5em 2em 1em;
+    pre { margin: 0; }
+}
+
+body .control-group > * { 
+    float: left; 
+    border-left: 0; 
+    display:block; 
+    padding: .25em 0; 
+    border-radius: 0; 
+    line-height: 2em; 
+    height:2em; 
+    background: transparent; 
+    margin: 0;
+}
+body .control-group > *:focus { padding-left: .5em; padding-right: .5em; }
+body .control-group input {}
+body .control-group > *:first-child { }
+body .control-group > *:last-child { }
+
+
+body .control-group .nodeName { width: 4em; border: none; border-bottom: 1px dotted #909090; }
+body .control-group .pxInput { width: 2em; text-align: center; border: none; border-bottom: 1px dotted #909090; }
+body .control-group .emOutput { width: auto; min-width: 1em; text-align: center; border: none; border-bottom: 1px dotted #909090; }
+
+
+.btn-group .btn {
+    display: block; float: left; 
+    font-size: 1.25em; line-height: 2em; 
+    width: 2em; height: 2em;
+    text-align: center;
+    background: #A189B2; color: #fbfbfb;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    border-color: #816694;
+    cursor: pointer;
+}
+.btn-group .btn:hover { background: #816694; }
+.btn-group .btn:active { background: #634B74; }
+.btn-group .btn:first-child { border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-left-width: 1px; }
+.btn-group .btn:last-child { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+
+.btn.toCss { box-shadow: 0 2px 0 #634B74; font-size: 15px; }
+/* ==========================================================================
+    Helper classes
+========================================================================== */
+.ir { display:block; background-color: transparent; border: 0; overflow: hidden; *text-indent: -9999px; }
+.ir:before { content: ""; display: block; width: 0; height: 100%; }
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden }
+.group:before, .group:after { content: " "; display: table; }
+.group:after { clear: both }
+.group { *zoom: 1 }
+
+/* Overlay Baseline */
+/** body:hover::before{top:;pointer-events:none;width:100%;height:100%;display:block;content:"";position:absolute;z-index:9999;background-size:100% .75em;background-origin:content-box;background-attachment:local;background-image:-webkit-linear-gradient(rgba(0,255,255,.75) 1px,transparent 1px);background-image:-moz-linear-gradient(rgba(0,255,255,.75) 1px,transparent 1px);background-image:linear-gradient(rgba(0,255,255,.75) 1px,transparent 1px)}
+/** body:hover *{background:none !important;outline:1px dashed rgba(100%,0%,0%,.5)}
+*/

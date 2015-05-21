@@ -1,0 +1,59 @@
+/* ==========================================================================
+	EXAMPLE Media Queries for Responsive Design.
+	These examples override the primary ('mobile first') styles.
+	Modify as content requires.
+========================================================================== */
+
+@media only screen and (min-width: 640px) {
+
+    // Basics
+    html, body { height: 100%; }
+    body { padding-bottom: 0; }
+
+    // Layout
+    .wrapper {
+        width: 100%; 
+        max-width: 840px; }
+
+    // Site Header
+    .site-header {
+        @include rem('height', 96px);
+
+        .site-logo { 
+            display: block;
+            text-align: left;
+            @include rem('height', 96px);
+
+            @include rem('font-size', 150px);
+            @include rem('line-height', 150px);
+
+            @include rem('margin', -33px 0 0 -6px); } 
+
+        .subheader { 
+            display: block; float:right; 
+            @include rem('font-size', 21px); } }
+
+    // Site Content
+    .site-content { 
+        margin: 24px auto; 
+        margin: 2rem auto; }
+
+    // Site Footer
+    .site-footer {
+        p.social-box { 
+            float: right; text-align: right; } 
+        
+        p.bragging-rights { 
+            display: block;
+            float: left; text-align: left; } }
+
+    .emBox { margin: .5em 0 .5em 4em; }
+    .emBox > form { padding: 1em 1em 1em 2em; }
+}
+
+@media print,
+	   (-o-min-device-pixel-ratio: 5/4),
+	   (-webkit-min-device-pixel-ratio: 1.25),
+	   (min-resolution: 120dpi) {
+	/* Style adjustments for high resolution devices */
+}

@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset=utf-8 />
-	<title>Em</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <!--<link href="css/bootstrap-responsive.min.css" rel="stylesheet" />-->
-    <link href="css/base.css" rel="stylesheet" />
-
-    <!--<script src="js/bootstrap.min.js"></script>-->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Emzy</title>
+  <meta name="description" content="EM Calculator for non-mathematical CSS writers.">
+  <script>(function(d) {var config = {kitId: 'hca1dif',scriptTimeout: 3000},h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);</script>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 
-<div class="navbar navbar-inverse navbar-static-top">
-  <div class="navbar-inner">
-    <a class="brand" href="/">Emzy.dev</a>
-    <ul class="nav">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Other Apps</a></li>
-    </ul>
+  <header class="site-header">
+    <div class="wrapper">
+      <h1 class="site-logo"><a class="site-title" href="http://cballenar.github.io/emzy/"><span class="b12">EM</span>ZY</a></h1>
+      <span class="subheader">A PX to EM calculator for the non-mathie CSS writer</span>
+    </div>
+  </header>
+
+  <div class="site-content">
+    <div class="wrapper">
+      <div class="emzyApp"></div>
+      <div class="emzyOutput"><pre>body { font-size: 1em }</pre></div>
+      <div class="emzyProcess form-actions"><input type="submit" class="btn btn-primary pull-right toCss" value="Output to CSS" /></div>
+    </div>
   </div>
-</div>
 
-<div class="container-fluid">
-  <div class="emzyApp"></div>
-  <div class="emzyOutput"></div>
-  <div class="emzyProcess form-actions"><input type="submit" class="btn btn-primary toCss" value="Output to CSS" /></div>
-</div>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>window.jQuery || document.write('<script src="/assets/js/vendors/jquery.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,27 @@
+.dg { 
+	margin: 0 0 1rem; 
+	@extend .cf; }
+
+div[class^="col-"] { float:left; margin: 0 .5rem; }
+div[class^="col-"]:first-child { margin-left:0; }
+div[class^="col-"]:last-child { margin-right:0; }
+
+	.col-1 { width: 1rem; }
+	.col-2 { width: 2rem; }
+	.col-5 { width: 5rem; }
+	.col-7 { width: 7rem; }
+	.col-10 { width: 10rem; }
+	.col-12 { width: 12rem; }
+
+	.col-13 { width: 13rem; }
+	.col-15 { width: 15rem; }
+	.col-38 { width: 38rem; }
+	.col-43 { width: 43rem; }
+	.col-61 { width: 61rem; }
+
+	.psh-1 { margin-left: 2.5rem; }
+		div[class^="col-"].psh-1:first-child { margin-left: 2rem; }
+	.psh-15 { margin-left: 16.5rem; }
+		div[class^="col-"].psh-1:first-child { margin-left: 16rem; }
+
+.test div[class^="col"] { background: rgba(100%,0%,0%,.1); text-align: center; height: 120px; line-height: 10rem; }
