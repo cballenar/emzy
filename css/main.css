@@ -1027,6 +1027,8 @@ html, body {
   height: 48px;
   background: #202020;
   color: #EBEBEB; }
+  .site-footer .wrapper {
+    padding-bottom: 0; }
   .site-footer p.bragging-rights {
     display: none; }
   .site-footer p {
