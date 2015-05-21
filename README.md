@@ -1,7 +1,10 @@
 #Emzy
+Emzy is a PX to EM calculator that allows you to keep track of multiple elements and output the final results as css. 
 
-Emzy is a px to em calculator that allows you to keep track of multiple elements and output the final results as css. 
+## Todo
+- Store configuration (save and load as json?)
+- Better icons
+- Accept custom properties, not just font-size?
 
-View a working version at [http://emzy.cwhale.me/](http://emzy.cwhale.me/).
-
-*Inspired by riddle.pl/emcalc.*
+## Source
+- I saw this project done at riddle.pl/emcalc and decided to make a similar version. Unfortunately it doesn't seem to be available anymore.
